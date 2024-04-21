@@ -1,6 +1,6 @@
 #include "romanos.hpp"
-#include <string.h>
-#include <cstdio>
+#include <string>
+#include <iostream>
 
 int valor(char romano) {
     switch (romano) {
@@ -15,9 +15,9 @@ int valor(char romano) {
     }
 }
 
-int romanos_para_decimal(const char *num_romano) {
+int romanos_para_decimal(const std::string& num_romano) {
     int resultado = 0;
-    int tamanho = strlen(num_romano);
+    int tamanho = num_romano.size();
 
     for (int i = 0; i < tamanho; i++) {
         int valor1 = valor(num_romano[i]);
@@ -36,7 +36,6 @@ int romanos_para_decimal(const char *num_romano) {
             }
         } else {
             resultado += valor1;
-            i++;
         }
     }
 
@@ -44,8 +43,8 @@ int romanos_para_decimal(const char *num_romano) {
 }
 
 int main() {
-    const char* num_romano = "MCMIV"; // Exemplo de número romano
+    std::string num_romano = "MCMIV"; // Exemplo de número romano
     int resultado = romanos_para_decimal(num_romano);
-    printf("O valor decimal de %s é %d\n", num_romano, resultado);
+    std::cout << "O valor decimal de " << num_romano << " é " << resultado << std::endl;
     return 0;
 }
