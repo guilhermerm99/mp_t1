@@ -1,5 +1,6 @@
 #include "romanos.hpp"
 #include <string.h>
+#include <cstdio>
 
 int valor(char romano) {
     switch (romano) {
@@ -40,4 +41,11 @@ int romanos_para_decimal(const char *num_romano) {
     }
 
     return resultado;
+}
+
+int main() {
+    const char* num_romano = "MCMIV"; // Exemplo de número romano
+    int resultado = romanos_para_decimal(num_romano);
+    printf("O valor decimal de %s é %d\n", num_romano, resultado);
+    return 0;
 }

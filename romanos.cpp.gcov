@@ -1,0 +1,55 @@
+        -:    0:Source:romanos.cpp
+        -:    0:Graph:romanos.gcno
+        -:    0:Data:romanos.gcda
+        -:    0:Runs:1
+        -:    1:#include "romanos.hpp"
+        -:    2:#include <string.h>
+        -:    3:#include <cstdio>
+        -:    4:
+        6:    5:int valor(char romano) {
+        6:    6:    switch (romano) {
+        1:    7:        case 'I': return 1;
+        1:    8:        case 'V': return 5;
+    #####:    9:        case 'X': return 10;
+    #####:   10:        case 'L': return 50;
+        2:   11:        case 'C': return 100;
+    #####:   12:        case 'D': return 500;
+        2:   13:        case 'M': return 1000;
+    #####:   14:        default: return 0;
+        -:   15:    }
+        -:   16:}
+        -:   17:
+        1:   18:int romanos_para_decimal(const char *num_romano) {
+        1:   19:    int resultado = 0;
+        1:   20:    int tamanho = strlen(num_romano);
+        -:   21:
+        4:   22:    for (int i = 0; i < tamanho; i++) {
+        3:   23:        int valor1 = valor(num_romano[i]);
+        -:   24:
+        3:   25:        if (i + 1 < tamanho) {
+        3:   26:            int valor2 = valor(num_romano[i + 1]);
+        -:   27:
+        -:   28:            // Comparando ambos os valores
+        3:   29:            if (valor1 >= valor2) {
+        -:   30:                // O valor do caractere atual é maior ou igual ao próximo
+        1:   31:                resultado += valor1;
+        -:   32:            } else {
+        -:   33:                // O valor do caractere atual é menor que o próximo
+        2:   34:                resultado += valor2 - valor1;
+        2:   35:                i++; // Precisamos pular este caractere
+        -:   36:            }
+        -:   37:        } else {
+    #####:   38:            resultado += valor1;
+    #####:   39:            i++;
+        -:   40:        }
+        -:   41:    }
+        -:   42:
+        1:   43:    return resultado;
+        -:   44:}
+        -:   45:
+        1:   46:int main() {
+        1:   47:    const char* num_romano = "MCMIV"; // Exemplo de número romano
+        1:   48:    int resultado = romanos_para_decimal(num_romano);
+        1:   49:    printf("O valor decimal de %s é %d\n", num_romano, resultado);
+        1:   50:    return 0;
+        -:   51:}
