@@ -14,8 +14,8 @@ int valor(char romano) {
     }
 }
 
-int romanos_para_decimal(char const * num_romano)
-{
-  return 0; 
+int romanos_para_decimal(const char *num_romano) {
+    return 0;
 }
+
  
