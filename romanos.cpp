@@ -1,5 +1,5 @@
 #include "romanos.hpp"
-#include <string.h
+#include <string.h>
 
 int valor(char romano) {
     switch (romano) {
@@ -15,7 +15,29 @@ int valor(char romano) {
 }
 
 int romanos_para_decimal(const char *num_romano) {
-    return 0;
-}
+    int resultado = 0;
+    int tamanho = strlen(num_romano);
 
- 
+    for (int i = 0; i < tamanho; i++) {
+        int valor1 = valor(num_romano[i]);
+
+        if (i + 1 < tamanho) {
+            int valor2 = valor(num_romano[i + 1]);
+
+            // Comparando ambos os valores
+            if (valor1 >= valor2) {
+                // O valor do caractere atual é maior ou igual ao próximo
+                resultado += valor1;
+            } else {
+                // O valor do caractere atual é menor que o próximo
+                resultado += valor2 - valor1;
+                i++; // Precisamos pular este caractere
+            }
+        } else {
+            resultado += valor1;
+            i++;
+        }
+    }
+
+    return resultado;
+}
