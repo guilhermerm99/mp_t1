@@ -52,3 +52,13 @@ TEST_CASE( "Numeros romanos - números complexos", "[romanos]" ) {
     REQUIRE( romanos_para_decimal("CDXLIV") == 444 );
     REQUIRE( romanos_para_decimal("CMXCIX") == 999 );
 }
+
+TEST_CASE( "Numeros romanos - strings vazias e nulas", "[romanos]" ) {
+    REQUIRE( romanos_para_decimal("") == 0 ); // String vazia
+    REQUIRE( romanos_para_decimal(NULL) == 0 ); // Ponteiro nulo
+}
+
+TEST_CASE( "Numeros romanos - números com caracteres inválidos", "[romanos]" ) {
+    REQUIRE( romanos_para_decimal("A") == -1 ); // Caractere inválido
+    REQUIRE( romanos_para_decimal("IVI") == -1 ); // Sequência inválida
+}
