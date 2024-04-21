@@ -26,3 +26,29 @@ TEST_CASE( "Numeros romanos - números válidos", "[romanos]" ) {
     REQUIRE( romanos_para_decimal("LVIII") == 58 );
     REQUIRE( romanos_para_decimal("MCMXCIV") == 1994 );
 }
+
+TEST_CASE( "Numeros romanos - números com subtração", "[romanos]" ) {
+    REQUIRE( romanos_para_decimal("IV") == 4 );
+    REQUIRE( romanos_para_decimal("IX") == 9 );
+    REQUIRE( romanos_para_decimal("XL") == 40 );
+    REQUIRE( romanos_para_decimal("XC") == 90 );
+    REQUIRE( romanos_para_decimal("CD") == 400 );
+    REQUIRE( romanos_para_decimal("CM") == 900 );
+}
+
+TEST_CASE( "Numeros romanos - números com adição", "[romanos]" ) {
+    REQUIRE( romanos_para_decimal("III") == 3 );
+    REQUIRE( romanos_para_decimal("VII") == 7 );
+    REQUIRE( romanos_para_decimal("XV") == 15 );
+    REQUIRE( romanos_para_decimal("LX") == 60 );
+    REQUIRE( romanos_para_decimal("DCCC") == 800 );
+    REQUIRE( romanos_para_decimal("MM") == 2000 );
+}
+
+TEST_CASE( "Numeros romanos - números complexos", "[romanos]" ) {
+    REQUIRE( romanos_para_decimal("MCMXCVI") == 1996 );
+    REQUIRE( romanos_para_decimal("MMXXIV") == 2024 );
+    REQUIRE( romanos_para_decimal("DCCVII") == 707 );
+    REQUIRE( romanos_para_decimal("CDXLIV") == 444 );
+    REQUIRE( romanos_para_decimal("CMXCIX") == 999 );
+}
