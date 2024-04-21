@@ -20,3 +20,9 @@ TEST_CASE( "Numeros romanos - algarismos inválidos", "[romanos]" ) {
     REQUIRE( romanos_para_decimal("@") == -1 );
 }
  
+TEST_CASE( "Numeros romanos - números válidos", "[romanos]" ) {
+    REQUIRE( romanos_para_decimal("IV") == 4 );
+    REQUIRE( romanos_para_decimal("IX") == 9 );
+    REQUIRE( romanos_para_decimal("LVIII") == 58 );
+    REQUIRE( romanos_para_decimal("MCMXCIV") == 1994 );
+}
