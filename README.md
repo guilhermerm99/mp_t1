@@ -1,3 +1,7 @@
+# Trabalho 1 de Métodos de Programação
+
+Este é o Trabalho 1 da disciplina de Métodos de Programação da Universidade de Brasília (UnB).
+
 # Conversor de Números Romanos para Decimais
 
 Este é um programa simples em C++ que converte números romanos em números decimais.
@@ -25,3 +29,6 @@ O programa utiliza o framework de testes Catch2. Não é necessário instalar se
 
 Este programa é distribuído sob a licença MIT. Consulte o arquivo LICENSE para obter mais informações.
 
+
+## GitHub
+Este projeto está hospedado no GitHub em https://github.com/guilhermerm99/mp_t1.
