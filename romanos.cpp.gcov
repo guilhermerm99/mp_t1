@@ -1,0 +1,50 @@
+        -:    0:Source:romanos.cpp
+        -:    0:Graph:romanos.gcno
+        -:    0:Data:romanos.gcda
+        -:    0:Runs:1
+        -:    1:#include "romanos.hpp"
+        -:    2:#include <string>
+        -:    3:
+      113:    4:int valor(char romano) {
+      113:    5:    switch (romano) {
+       31:    6:        case 'I': return 1;
+       14:    7:        case 'V': return 5;
+       17:    8:        case 'X': return 10;
+        5:    9:        case 'L': return 50;
+       23:   10:        case 'C': return 100;
+        5:   11:        case 'D': return 500;
+       13:   12:        case 'M': return 1000;
+        5:   13:        default: return -1;  // Retorna -1 para caracteres inválidos.
+        -:   14:    }
+        -:   15:}
+        -:   16:
+       34:   17:int romanos_para_decimal(const std::string& num_romano) {
+       34:   18:    if (num_romano.empty()) return 0;  // Verifica se a string é vazia
+        -:   19:
+       33:   20:    int resultado = 0;
+       33:   21:    int tamanho = num_romano.size();
+        -:   22:
+       95:   23:    for (int i = 0; i < tamanho; i++) {
+       67:   24:        int valor1 = valor(num_romano[i]);
+        -:   25:
+       67:   26:        if (valor1 == -1) return -1;
+        -:   27:
+       62:   28:        if (i + 1 < tamanho) {
+       46:   29:            int valor2 = valor(num_romano[i + 1]);
+        -:   30:
+        -:   31:            // Comparando ambos os valores
+       46:   32:            if (valor1 >= valor2) {
+        -:   33:                // O valor do caractere atual é maior ou igual ao próximo
+       26:   34:                resultado += valor1;
+        -:   35:            } else {
+        -:   36:                // O valor do caractere atual é menor que o próximo
+       20:   37:                resultado += valor2 - valor1;
+       20:   38:                i++; // Precisamos pular este caractere
+        -:   39:            }
+        -:   40:        } else {
+       16:   41:            resultado += valor1;
+        -:   42:        }
+        -:   43:    }
+        -:   44:
+       28:   45:    return resultado;
+        -:   46:}

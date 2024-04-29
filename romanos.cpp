@@ -1,3 +1,5 @@
+// Copyright [2024] [Guilherme Ribeiro de Macedo]
+
 #include "romanos.hpp"
 #include <string>
 
@@ -23,7 +25,7 @@ int romanos_para_decimal(const std::string& num_romano) {
     for (int i = 0; i < tamanho; i++) {
         int valor1 = valor(num_romano[i]);
 
-        if (valor1 == -1) return -1;
+        if (valor1 == -1) return -1;  // Caractere inválido encontrado
 
         if (i + 1 < tamanho) {
             int valor2 = valor(num_romano[i + 1]);
