@@ -1,7 +1,8 @@
 // Copyright [2024] [Guilherme Ribeiro de Macedo]
 
-#include "romanos.hpp"
-#include <string>
+#include <string> // Incluindo o cabeçalho do sistema C++ antes de qualquer outro cabeçalho
+#include "mp_t1\romanos.hpp"  // Incluindo o diretório ao nomear arquivos de cabeçalho local
+#include "mp_t1\catch.hpp"  // Incluindo o diretório ao nomear arquivos de cabeçalho local
 
 int valor(char romano) {
     switch (romano) {
@@ -37,7 +38,7 @@ int romanos_para_decimal(const std::string& num_romano) {
             } else {
                 // O valor do caractere atual é menor que o próximo
                 resultado += valor2 - valor1;
-                i++; // Precisamos pular este caractere
+                i++;  // Precisamos pular este caractere
             }
         } else {
             resultado += valor1;
